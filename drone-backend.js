@@ -1,7 +1,6 @@
 var Cylon = require('cylon');
 var bot;
 var utils = require('./utils/droneUtils.js');
-<a class="co" id="co_flying_with_computer_vision_CO1-1" href="#callout_flying_with_computer_vision_CO1-1"><img src="callouts/1.png" alt="1"/></a>
 
 // Initialise the robot
 Cylon.robot()
@@ -28,9 +27,9 @@ function fly(robot) {
 
 
     bot.drone.getPngStream()
-    <a class="co" id="co_flying_with_computer_vision_CO2-1" href="#callout_flying_with_computer_vision_CO2-1"><img src="callouts/1.png" alt="1"/></a>
+
         .on("data", utils.sendFrame);
-    a class="co" id="co_flying_with_computer_vision_CO2-2" href="#callout_flying_with_computer_vision_CO2-2"><img src="callouts/2.png" alt="2"/></a>
+
 
     bot.drone.config('general:navdata_demo', 'TRUE');
     bot.nav.on("navdata", function(data) {
@@ -59,8 +58,6 @@ function fly(robot) {
     after(6*1000, function() {
         bot.drone.left(0.2);
     })
-
-
     after(9*1000, function() {
         bot.drone.back(0.2);
     })
@@ -74,5 +71,26 @@ function fly(robot) {
         bot.drone.stop();
     });
     }
+function moveDrone(move) {
+    console.log("received", move);
+    if (move.left) {
+        console.log("Moving left");
+        bot.drone.left(0.2);
+        bot.drone.forward(0);
+        after(0.5*1000, function() {
+            bot.drone.left(0);
+            bot.drone.forward(0.05);
+        });
+    }
 
+    if (move.right) {
+        console.log("Moving right");
+        bot.drone.right(0.2);
+        bot.drone.forward(0);
+        after(0.5*1000, function() {
+            bot.drone.right(0);
+            bot.drone.forward(0.05);
+        });
+    }
+}
 Cylon.start();
