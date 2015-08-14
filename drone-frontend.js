@@ -11,6 +11,9 @@ function initTracker(element) {
     TrackerUtils.addTrackingColor("#A94A45", "red", tracker);
     TrackerUtils.addTrackingColor("#5EA24E", "green", tracker);
     TrackerUtils.addTrackingColor("#FFFF00","yellow", tracker);
+    TrackerUtils.addTrackingColor("#CB7F84", "magenta", tracker);
+    TrackerUtils.addTrackingColor("#0000FF", "blue", tracker);
+    TrackerUtils.addTrackingColor("#FE2EF7", "pink", tracker);
 
     // Whenever there is a new color detected, mark them
     tracker.on('track', function(event) {

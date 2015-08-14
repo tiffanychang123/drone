@@ -76,20 +76,20 @@ function moveDrone(move) {
     if (move.left) {
         console.log("Moving left");
         bot.drone.left(0.2);
-        bot.drone.forward(0);
+        bot.drone.forward(0.2);
         after(0.5*1000, function() {
-            bot.drone.left(0);
-            bot.drone.forward(0.05);
+            bot.drone.left(0.2);
+            bot.drone.forward(0.2);
         });
     }
 
     if (move.right) {
         console.log("Moving right");
         bot.drone.right(0.2);
-        bot.drone.forward(0);
+        bot.drone.forward(0.2);
         after(0.5*1000, function() {
-            bot.drone.right(0);
-            bot.drone.forward(0.05);
+            bot.drone.right(0.2);
+            bot.drone.forward(0.2);
         });
     }
 }
