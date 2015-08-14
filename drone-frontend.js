@@ -17,4 +17,11 @@ function initTracker(element) {
     return tracker;
 }
 
+
+function markColors(colors, element) {
+    // Do the marking
+    var canvas = $(element + ' .canvas').get(0);
+    var context = canvas.getContext('2d');
+}
+
 window.addEventListener("load", init);
